@@ -18,10 +18,14 @@ public class MovieService {
         this.client = new Client();
     }
 
-    public Movie addMovie(Movie movie) throws Exception{
-        String query = "Write a short description for the movie: " + movie.getTitle();
-        GenerateContentResponse response = client.models.generateContent("gemini-2.0-flash-001", query, null);
-        movie.setDescription(response.text());
+    public Movie addMovie(Movie movie) {
+        try {
+            String query = "Write a short description for the movie: " + movie.getTitle();
+            GenerateContentResponse response = client.models.generateContent("gemini-2.0-flash-001", query, null);
+            movie.setDescription(response.text());
+        }catch (Exception e){
+            movie.setDescription("Description not available.");
+        }
         return movieRepository.save(movie);
     }
 
