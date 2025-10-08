@@ -2,6 +2,7 @@ package com.example.movie_App;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.w3c.dom.Text;
 
 @Entity
 @Data
@@ -18,5 +19,7 @@ public class Movie {
 
     @Column(length = 1000)
     private String description;
+
+    private String genre;
 
 }

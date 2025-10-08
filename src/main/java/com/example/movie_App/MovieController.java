@@ -2,6 +2,7 @@ package com.example.movie_App;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
